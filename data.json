@@ -1,6 +1,84 @@
 {
-  "store": "TOSERBA MAJU",
-  "updated": "14 June 2026, 09:37",
-  "total_products": 0,
-  "categories": []
+  "store": "TOKO 88 KUBU",
+  "updated": "16 June 2026, 12:45",
+  "total_products": 12,
+  "categories": [
+    {
+      "name": "Lain-lain",
+      "products": [
+        {
+          "name": "Bearing artco original",
+          "barcode": "LLL-0008",
+          "stock": "Tersedia",
+          "category": "Lain-lain"
+        },
+        {
+          "name": "Golok sarung 39cm",
+          "barcode": "LLL-0005",
+          "stock": "Tersedia",
+          "category": "Lain-lain"
+        },
+        {
+          "name": "Golok sedang 44cm",
+          "barcode": "LLL-0006",
+          "stock": "Tersedia",
+          "category": "Lain-lain"
+        },
+        {
+          "name": "Golok sedang kepala singa",
+          "barcode": "LLL-0007",
+          "stock": "Tersedia",
+          "category": "Lain-lain"
+        },
+        {
+          "name": "Klep best 1\"",
+          "barcode": "LLL-0004",
+          "stock": "Tersedia",
+          "category": "Lain-lain"
+        },
+        {
+          "name": "Kunci busi besar 21mm/16mm",
+          "barcode": "LLL-0002",
+          "stock": "Tersedia",
+          "category": "Lain-lain"
+        },
+        {
+          "name": "Lem pvc ramaplast 100gr",
+          "barcode": "745760614394",
+          "stock": "Tersedia",
+          "category": "Lain-lain"
+        },
+        {
+          "name": "Non sag epoxy dextone 170g",
+          "barcode": "014184003146",
+          "stock": "Tersedia",
+          "category": "Lain-lain"
+        },
+        {
+          "name": "Palu fk 0.5kg",
+          "barcode": "LLL-0003",
+          "stock": "Tersedia",
+          "category": "Lain-lain"
+        },
+        {
+          "name": "dami1",
+          "barcode": "LLL-0009",
+          "stock": "Tersedia",
+          "category": "Lain-lain"
+        },
+        {
+          "name": "dami2",
+          "barcode": "LLL-0010",
+          "stock": "Tersedia",
+          "category": "Lain-lain"
+        },
+        {
+          "name": "klep pipa mesin air 1",
+          "barcode": "LLL-0001",
+          "stock": "Tersedia",
+          "category": "Lain-lain"
+        }
+      ]
+    }
+  ]
 }

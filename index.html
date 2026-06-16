@@ -3,146 +3,288 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TOSERBA MAJU — Katalog Harga</title>
-<meta name="description" content="Katalog Produk & Harga Terbaru — 0 produk">
+<title>TOKO 88 KUBU — Katalog Produk</title>
+<meta name="description" content="Katalog Produk Tersedia — 12 produk tersedia">
 <style>
 :root {
-    --primary: #2563eb; --primary-light: #eff6ff;
-    --success: #16a34a; --danger: #dc2626;
-    --bg: #f8fafc; --surface: #fff; --text: #0f172a; --text2: #64748b;
-    --border: #e2e8f0; --shadow: 0 1px 3px rgba(0,0,0,.06);
-    --radius: 10px; --font: -apple-system, 'Segoe UI', system-ui, sans-serif;
+    --primary: #075e54; --primary-light: #dcf8c6;
+    --wa-green: #25d366; --wa-dark: #128c7e;
+    --bg: #f0f2f5; --surface: #fff; --text: #111b21; --text2: #667781;
+    --border: #e9edef; --radius: 12px;
+    --font: -apple-system, 'Segoe UI', system-ui, sans-serif;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:var(--font); background:var(--bg); color:var(--text); }
 
 .header {
-    background: linear-gradient(135deg, #1e3a5f, var(--primary));
-    color: #fff; padding: 32px 20px; text-align: center;
+    background: var(--primary);
+    color: #fff; padding: 28px 20px; text-align: center;
 }
-.header h1 { font-size: 28px; margin-bottom: 4px; }
-.header p { opacity: .8; font-size: 14px; }
-.header .stats { margin-top: 12px; font-size: 13px; opacity: .7; }
+.header h1 { font-size: 26px; margin-bottom: 4px; }
+.header p { opacity: .85; font-size: 14px; }
+.header .stats { margin-top: 10px; font-size: 12px; opacity: .65; }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+.wa-banner {
+    background: var(--wa-green); color: #fff; text-align: center;
+    padding: 10px; font-size: 14px; cursor: pointer;
+}
+.wa-banner:hover { background: var(--wa-dark); }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 16px; }
 
 .search-bar {
     position: sticky; top: 0; z-index: 10;
-    background: var(--surface); padding: 12px 20px;
+    background: var(--surface); padding: 10px 16px;
     border-bottom: 1px solid var(--border);
-    box-shadow: var(--shadow);
+    box-shadow: 0 1px 3px rgba(0,0,0,.08);
 }
 .search-bar input {
     width: 100%; padding: 12px 16px; border: 2px solid var(--border);
-    border-radius: var(--radius); font-size: 16px; outline: none;
-    font-family: var(--font);
+    border-radius: 24px; font-size: 15px; outline: none;
+    font-family: var(--font); background: var(--bg);
 }
-.search-bar input:focus { border-color: var(--primary); }
+.search-bar input:focus { border-color: var(--wa-green); background: #fff; }
 
-.chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 20px; }
+.chips {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    padding: 10px 16px; overflow-x: auto;
+}
 .chip {
     padding: 6px 14px; border-radius: 20px; font-size: 13px;
     border: 1.5px solid var(--border); background: var(--surface);
-    cursor: pointer; font-family: var(--font); transition: .15s;
+    cursor: pointer; font-family: var(--font); white-space: nowrap;
 }
-.chip:hover, .chip.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+.chip:hover, .chip.active {
+    background: var(--primary); color: #fff; border-color: var(--primary);
+}
 
-.category-section { margin-bottom: 32px; }
-.category-title {
-    font-size: 18px; font-weight: 700; padding: 8px 0;
-    border-bottom: 2px solid var(--primary); margin-bottom: 16px;
+.cat-section { margin-bottom: 28px; }
+.cat-title {
+    font-size: 16px; font-weight: 700; padding: 8px 0;
+    border-bottom: 2px solid var(--primary); margin-bottom: 12px;
     color: var(--primary);
 }
 
-.product-grid {
+.grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
 }
-.product-card {
+
+.product {
     background: var(--surface); border-radius: var(--radius);
-    padding: 16px; box-shadow: var(--shadow); border: 1px solid var(--border);
-    transition: .15s;
+    padding: 14px 16px; border: 1px solid var(--border);
+    cursor: pointer; transition: .15s;
+    display: flex; flex-direction: column; gap: 8px;
 }
-.product-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,.1); transform: translateY(-1px); }
-.product-name { font-weight: 600; font-size: 14px; margin-bottom: 6px; }
-.product-price {
-    font-size: 20px; font-weight: 800; color: var(--primary);
-    font-family: 'Consolas', monospace; margin-bottom: 8px;
+.product:hover {
+    border-color: var(--wa-green);
+    box-shadow: 0 2px 12px rgba(37,211,102,.15);
+    transform: translateY(-1px);
 }
-.product-meta { display: flex; justify-content: space-between; align-items: center; }
-.product-barcode { font-size: 11px; color: var(--text2); font-family: monospace; }
-.stock-badge {
+.product:active { transform: scale(.98); }
+
+.product-name {
+    font-weight: 600; font-size: 14px; line-height: 1.3;
+}
+
+.product-meta {
+    display: flex; justify-content: space-between; align-items: center;
+}
+
+.badge {
     font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px;
 }
-.in-stock { background: #dcfce7; color: var(--success); }
-.out-stock { background: #fef2f2; color: var(--danger); }
+.in-stock { background: #dcfce7; color: #16a34a; }
+.out-stock { background: #fef2f2; color: #dc2626; }
+
+.wa-hint {
+    font-size: 12px; color: var(--wa-green); font-weight: 600;
+    opacity: 0; transition: .15s;
+}
+.product:hover .wa-hint { opacity: 1; }
+
+/* WA float button */
+.wa-float {
+    position: fixed; bottom: 20px; right: 20px;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--wa-green); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; box-shadow: 0 4px 12px rgba(0,0,0,.2);
+    cursor: pointer; z-index: 100; text-decoration: none;
+    transition: .2s;
+}
+.wa-float:hover { transform: scale(1.1); background: var(--wa-dark); }
 
 .footer {
-    text-align: center; padding: 24px; color: var(--text2); font-size: 13px;
-    border-top: 1px solid var(--border); margin-top: 40px;
+    text-align: center; padding: 24px; color: var(--text2); font-size: 12px;
+    border-top: 1px solid var(--border); margin-top: 32px;
 }
 
 @media (max-width: 600px) {
-    .product-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
-    .header h1 { font-size: 22px; }
+    .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+    .header h1 { font-size: 20px; }
+    .product { padding: 12px; }
 }
 </style>
 </head>
 <body>
 
 <div class="header">
-    <h1>TOSERBA MAJU</h1>
-    <p>Katalog Produk & Harga Terbaru</p>
-    <div class="stats">0 produk · Update: 14 June 2026, 09:37</div>
+    <h1>TOKO 88 KUBU</h1>
+    <p>Katalog Produk Tersedia</p>
+    <div class="stats">12 produk &middot; Update: 16 June 2026, 12:45</div>
 </div>
 
+<div class='wa-banner' onclick='tanyaUmum()'>💬 Chat WhatsApp untuk tanya harga &amp; ketersediaan</div>
+
 <div class="search-bar">
-    <input type="text" id="search" placeholder="🔍 Cari produk..." oninput="searchProducts(this.value)">
+    <input type="text" id="q" placeholder="🔍 Cari produk..." oninput="cari(this.value)">
 </div>
 
 <div class="chips">
-    <button class="chip active" onclick="filterCategory(null)">Semua (0)</button>
-    
+    <button class="chip active" onclick="filterCat(null)">Semua (12)</button>
+    <button class="chip" onclick="filterCat(12)">Lain-lain (12)</button>
 </div>
 
 <div class="container" id="catalog">
     
+        <div class="cat-section" id="cat-12">
+            <h2 class="cat-title">Lain-lain</h2>
+            <div class="grid">
+            <div class="product" onclick="tanya('Bearing artco original')">
+                <div class="product-name">Bearing artco original</div>
+                <div class="product-meta">
+                    <span class="badge in-stock">Tersedia</span>
+                    <span class="wa-hint">Tanya harga &rarr;</span>
+                </div>
+            </div>
+            <div class="product" onclick="tanya('Golok sarung 39cm')">
+                <div class="product-name">Golok sarung 39cm</div>
+                <div class="product-meta">
+                    <span class="badge in-stock">Tersedia</span>
+                    <span class="wa-hint">Tanya harga &rarr;</span>
+                </div>
+            </div>
+            <div class="product" onclick="tanya('Golok sedang 44cm')">
+                <div class="product-name">Golok sedang 44cm</div>
+                <div class="product-meta">
+                    <span class="badge in-stock">Tersedia</span>
+                    <span class="wa-hint">Tanya harga &rarr;</span>
+                </div>
+            </div>
+            <div class="product" onclick="tanya('Golok sedang kepala singa')">
+                <div class="product-name">Golok sedang kepala singa</div>
+                <div class="product-meta">
+                    <span class="badge in-stock">Tersedia</span>
+                    <span class="wa-hint">Tanya harga &rarr;</span>
+                </div>
+            </div>
+            <div class="product" onclick="tanya('Klep best 1&quot;')">
+                <div class="product-name">Klep best 1"</div>
+                <div class="product-meta">
+                    <span class="badge in-stock">Tersedia</span>
+                    <span class="wa-hint">Tanya harga &rarr;</span>
+                </div>
+            </div>
+            <div class="product" onclick="tanya('Kunci busi besar 21mm/16mm')">
+                <div class="product-name">Kunci busi besar 21mm/16mm</div>
+                <div class="product-meta">
+                    <span class="badge in-stock">Tersedia</span>
+                    <span class="wa-hint">Tanya harga &rarr;</span>
+                </div>
+            </div>
+            <div class="product" onclick="tanya('Lem pvc ramaplast 100gr')">
+                <div class="product-name">Lem pvc ramaplast 100gr</div>
+                <div class="product-meta">
+                    <span class="badge in-stock">Tersedia</span>
+                    <span class="wa-hint">Tanya harga &rarr;</span>
+                </div>
+            </div>
+            <div class="product" onclick="tanya('Non sag epoxy dextone 170g')">
+                <div class="product-name">Non sag epoxy dextone 170g</div>
+                <div class="product-meta">
+                    <span class="badge in-stock">Tersedia</span>
+                    <span class="wa-hint">Tanya harga &rarr;</span>
+                </div>
+            </div>
+            <div class="product" onclick="tanya('Palu fk 0.5kg')">
+                <div class="product-name">Palu fk 0.5kg</div>
+                <div class="product-meta">
+                    <span class="badge in-stock">Tersedia</span>
+                    <span class="wa-hint">Tanya harga &rarr;</span>
+                </div>
+            </div>
+            <div class="product" onclick="tanya('dami1')">
+                <div class="product-name">dami1</div>
+                <div class="product-meta">
+                    <span class="badge in-stock">Tersedia</span>
+                    <span class="wa-hint">Tanya harga &rarr;</span>
+                </div>
+            </div>
+            <div class="product" onclick="tanya('dami2')">
+                <div class="product-name">dami2</div>
+                <div class="product-meta">
+                    <span class="badge in-stock">Tersedia</span>
+                    <span class="wa-hint">Tanya harga &rarr;</span>
+                </div>
+            </div>
+            <div class="product" onclick="tanya('klep pipa mesin air 1')">
+                <div class="product-name">klep pipa mesin air 1</div>
+                <div class="product-meta">
+                    <span class="badge in-stock">Tersedia</span>
+                    <span class="wa-hint">Tanya harga &rarr;</span>
+                </div>
+            </div>
+            </div>
+        </div>
 </div>
 
+<a class='wa-float' href='https://wa.me/6285159668618' target='_blank'>💬</a>
+
 <div class="footer">
-    TOSERBA MAJU · Harga dapat berubah sewaktu-waktu<br>
+    TOKO 88 KUBU &middot; Klik produk untuk tanya harga via WhatsApp<br>
     Powered by POS Toserba
 </div>
 
 <script>
-function searchProducts(q) {
+const WA = "6285159668618";
+
+function tanya(productName) {
+    if (!WA) { alert("Nomor WhatsApp toko belum diset"); return; }
+    const msg = encodeURIComponent(
+        "Halo TOKO 88 KUBU, saya mau tanya harga dan ketersediaan:\n\n" +
+        "*" + productName + "*\n\n" +
+        "Terima kasih 🙏"
+    );
+    window.open("https://wa.me/" + WA + "?text=" + msg, "_blank");
+}
+
+function tanyaUmum() {
+    if (!WA) return;
+    const msg = encodeURIComponent("Halo TOKO 88 KUBU, saya mau tanya produk. Terima kasih 🙏");
+    window.open("https://wa.me/" + WA + "?text=" + msg, "_blank");
+}
+
+function cari(q) {
     q = q.toLowerCase();
-    document.querySelectorAll('.product-card').forEach(card => {
-        const name = card.querySelector('.product-name').textContent.toLowerCase();
-        const barcode = card.querySelector('.product-barcode').textContent.toLowerCase();
-        card.style.display = (name.includes(q) || barcode.includes(q)) ? '' : 'none';
+    document.querySelectorAll('.product').forEach(c => {
+        c.style.display = c.querySelector('.product-name').textContent.toLowerCase().includes(q) ? '' : 'none';
     });
-    // Show all categories when searching
-    document.querySelectorAll('.category-section').forEach(s => {
-        const visible = s.querySelectorAll('.product-card[style=""], .product-card:not([style])');
-        s.style.display = visible.length ? '' : 'none';
+    document.querySelectorAll('.cat-section').forEach(s => {
+        const v = s.querySelectorAll('.product[style=""], .product:not([style])');
+        s.style.display = v.length ? '' : 'none';
     });
 }
 
-function filterCategory(catId) {
+function filterCat(id) {
     document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
     event.target.classList.add('active');
-
-    document.querySelectorAll('.category-section').forEach(s => {
-        if (catId === null) {
-            s.style.display = '';
-        } else {
-            s.style.display = s.id === 'cat-' + catId ? '' : 'none';
-        }
+    document.querySelectorAll('.cat-section').forEach(s => {
+        s.style.display = (id === null || s.id === 'cat-' + id) ? '' : 'none';
     });
-    document.querySelectorAll('.product-card').forEach(c => c.style.display = '');
-    document.getElementById('search').value = '';
+    document.querySelectorAll('.product').forEach(c => c.style.display = '');
+    document.getElementById('q').value = '';
 }
 </script>
 </body>
